@@ -1,0 +1,131 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1a1916;
+  --color-ink-low: #6b6a67;
+  --color-ink-mid: #9a9590;
+  --color-sage: #c4a882;
+  --color-sage-lt: #c4d0c8;
+  --color-off: #f3f1ed;
+  --font-family-playfair: 'Playfair Display', serif;
+  --font-family-cormorant: 'Cormorant Garamond', serif;
+  --font-family-dm: 'DM Sans', sans-serif;
+}
+
+/* Base */
+body { font-family: 'DM Sans', sans-serif; background: #faf9f7; color: #1a1916; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+
+/* Custom border color shorthand */
+.border-line  { border-color: rgba(26,25,22,0.1); }
+.divide-line > * + * { border-color: rgba(26,25,22,0.1); }
+
+/* Nav border toggle via JS */
+nav { border-bottom: 1px solid transparent; transition: border-color 0.4s; }
+nav.scrolled { border-color: rgba(26,25,22,0.1); }
+
+/* Hero eyebrow line */
+.eyebrow-line::before {
+  content: '';
+  display: block;
+  width: 28px; height: 1px;
+  background: #c4a882;
+  flex-shrink: 0;
+}
+
+/* Hero title clamp */
+.hero-title { font-size: clamp(5rem, 8vw, 8rem); line-height: 0.92; }
+.hero-subtitle { font-size: clamp(1.2rem, 2.2vw, 1.9rem); }
+
+/* Decorative letter */
+.deco-letter { font-size: 22vw; line-height: 1; }
+
+/* Hero tag hover border */
+.hero-tag { border: 1px solid rgba(26,25,22,0.1); transition: border-color 0.3s, background 0.3s; }
+.hero-tag:hover { border-color: #c4a882; background: #faf9f7; }
+
+/* Btn-dark */
+.btn-dark { background: #1a1916; color: #faf9f7; transition: background 0.3s; letter-spacing: 0.25em; }
+.btn-dark:hover { background: #4a4844; }
+
+/* Btn-link arrow */
+.btn-link::after { content: '→'; }
+.btn-link { transition: color 0.25s, gap 0.25s; gap: 10px; }
+.btn-link:hover { color: #1a1916; gap: 16px; }
+
+/* About list bullet */
+.about-item::before {
+  content: '';
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: #c4a882;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* About number top border */
+.stat-block { border-top: 2px solid #1a1916; padding-top: 16px; }
+
+/* Card top accent line */
+.card-accent::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.76, 0, 0.24, 1);
+}
+.card-accent:hover::after { transform: scaleX(1); }
+.card-accent:hover { background: #f3f1ed; }
+
+.card-day    { --accent: #c4a042; }
+.card-night  { --accent: #7a8faa; }
+.card-beauty { --accent: #b88898; }
+.card-hogar  { --accent: #a08878; }
+
+/* Card rule */
+.card-rule { width: 28px; height: 1px; background: rgba(26,25,22,0.1); margin-bottom: 22px; transition: width 0.4s, background 0.4s; }
+.card-accent:hover .card-rule { width: 48px; background: var(--accent); }
+
+/* Card image placeholder circle */
+.img-placeholder::before {
+  content: '';
+  width: 28px; height: 28px;
+  border: 1px solid #9a9590;
+  border-radius: 50%;
+  opacity: 0.25;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+/* Process step number */
+.step-n { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; font-weight: 300; color: #c4d0c8; line-height: 1; padding-top: 2px; }
+
+/* Marquee */
+.strip-inner { animation: marquee 22s linear infinite; white-space: nowrap; }
+@keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.strip-dot::before { content: '·'; color: #c4a882; font-size: 1rem; margin-right: 14px; }
+
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(22px); transition: opacity 0.75s ease, transform 0.75s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.d1 { transition-delay: 0.08s; }
+.d2 { transition-delay: 0.16s; }
+.d3 { transition-delay: 0.24s; }
+.d4 { transition-delay: 0.32s; }
+
+/* Hero animations */
+@keyframes fadeUp { from { opacity:0; transform:translateY(20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn { from { opacity:0; } to { opacity:1; } }
+.anim-1 { opacity:0; animation: fadeUp 0.9s 0.10s forwards; }
+.anim-2 { opacity:0; animation: fadeUp 0.9s 0.20s forwards; }
+.anim-3 { opacity:0; animation: fadeUp 0.9s 0.35s forwards; }
+.anim-4 { opacity:0; animation: fadeUp 0.9s 0.50s forwards; }
+.anim-5 { opacity:0; animation: fadeUp 0.9s 0.65s forwards; }
+.anim-6 { opacity:0; animation: fadeIn 1.1s 0.80s forwards; }
+
+/* Card image hover zoom */
+.card-img-wrap { overflow: hidden; }
+.card-img-wrap img { transition: transform 0.6s ease; }
+.card-accent:hover .card-img-wrap img { transform: scale(1.04); }

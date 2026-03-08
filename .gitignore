@@ -1,0 +1,14 @@
+# Node modules
+node_modules/
+
+# build output
+src/output.css
+
+# logs
+npm-debug.log*
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
