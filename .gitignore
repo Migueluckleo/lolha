@@ -2,7 +2,6 @@
 node_modules/
 
 # build output
-src/output.css
 
 # logs
 npm-debug.log*
