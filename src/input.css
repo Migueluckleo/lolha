@@ -2,8 +2,8 @@
 
 @theme {
   --color-ink: #1a1916;
-  --color-ink-low: #6b6a67;
-  --color-ink-mid: #9a9590;
+  --color-ink-low: #4a4844; /* Mejorado para contraste */
+  --color-ink-mid: #6b6a67; /* Mejorado para contraste */
   --color-sage: #c4a882;
   --color-sage-lt: #c4d0c8;
   --color-off: #f3f1ed;
